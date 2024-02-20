@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "UIMarkup.UI.UnoApp",
+  "display": "standalone",
+  "name": "UIMarkup.UI.UnoApp",
+  "short_name": "UIMarkup.UI.UnoApp",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
