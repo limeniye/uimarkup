@@ -1,44 +1,48 @@
-﻿<Page x:Class="UIMarkup.UI.UnoApp.Presentation.MainPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:local="using:UIMarkup.UI.UnoApp.Presentation"
-      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+﻿<Page x:Class="UIMarkup.UI.UnoApp.Presentation.MainPage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:utu="using:Uno.Toolkit.UI"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:maui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:not_maui="http://notmaui"
-      mc:Ignorable="d not_maui"
-      xmlns:controls="using:UIMarkup.UI.UnoApp.MauiControls"
       NavigationCacheMode="Required"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  
+  <Page.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <SolidColorBrush x:Key="SurfaceBrush" Color="#00A3FF" Opacity="0.11"/>
+          <SolidColorBrush x:Key="StrokeBrush" Color="#0094FF"/>
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </Page.Resources>
 
   <Grid utu:SafeArea.Insets="VisibleBounds">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition />
-    </Grid.RowDefinitions>
-    <utu:NavigationBar Content="{Binding Title}" />
-
-    <StackPanel Grid.Row="1"
+    <Grid Width="600" Height="50" CornerRadius="10"
+          Margin="10"
+          BorderThickness="1"
           HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          Spacing="16">
-      <maui:Grid>
-        <embed:MauiHost x:Name="MauiHostElement"
-                xmlns:embed="using:Uno.Extensions.Maui"
-                Source="controls:EmbeddedControl" />
-      </maui:Grid>
-      <not_maui:Grid>
-        <TextBlock AutomationProperties.AutomationId="NotMauiTextBlock"
-          Text="Alternative content for Non-Maui targets"
-          HorizontalAlignment="Center" />
-      </not_maui:Grid>
-      <TextBox Text="{Binding Name, Mode=TwoWay}"
-          PlaceholderText="Enter your name:" />
-      <Button Content="Go to Second Page"
-          AutomationProperties.AutomationId="SecondPageButton"
-          Command="{Binding GoToSecond}" />
-    </StackPanel>
+          VerticalAlignment="Top"
+          BorderBrush="{ThemeResource StrokeBrush}"
+          Background="{ThemeResource SurfaceBrush}">
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+      </Grid.ColumnDefinitions>
+
+      <ItemsControl Grid.Column="0">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
+        <Image HorizontalAlignment="Center" Width="27" Height="27" Margin="10"
+               Stretch="Uniform" Source="ms-appx:///UIMarkup.UI.UnoApp/Assets/Icons/button.png"/>
+      </ItemsControl>
+
+      <Grid Grid.Column="1">
+        <Image HorizontalAlignment="Center" Width="27" Height="27" Margin="10"
+               Stretch="Uniform" Source="ms-appx:///UIMarkup.UI.UnoApp/Assets/Icons/option.png"/>
+      </Grid>
+    </Grid>
   </Grid>
 </Page>
