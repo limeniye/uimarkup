@@ -7,7 +7,7 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private string? name;
 
-    private int count = 0;
+    private int count;
 
     [ObservableProperty]
     private string counterText = "Press Me";
