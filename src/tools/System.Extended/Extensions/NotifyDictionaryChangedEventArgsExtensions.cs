@@ -136,6 +136,27 @@ public static class NotifyDictionaryChangedEventArgsExtensions
 	}
 
 	/// <summary>
+	/// Changing the key value in the dictionary
+	/// </summary>
+	public static void ChangeAndRiseEvent<TKey, TValue>(
+		this IDictionary<TKey, TValue> currentEntities,
+		object sender,
+		EventHandler<NotifyDictionaryChangedEventArgs<TKey, TValue>> action,
+		TKey changeKey,
+		TValue changeValue)
+	{
+		if (currentEntities.TryGetValue(changeKey, out TValue oldValue))
+		{
+			currentEntities[changeKey] = changeValue;
+			action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.ChangeKeyValuePair(changeKey, oldValue, changeValue));
+		}
+		else
+		{
+			throw new InvalidOperationException($"The key {changeKey} doesn't exists in {currentEntities} dictionary");
+		}
+	}
+
+	/// <summary>
 	/// Setting the key value in the dictionary
 	/// </summary>
 	/// <returns>
