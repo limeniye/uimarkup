@@ -23,8 +23,4 @@
     <!-- Required for Hot Reload (See https://github.com/dotnet/sdk/issues/36666) -->
     <IncludeSourceRevisionInInformationalVersion Condition="'$(Configuration)'=='Debug'">false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
-  
-  <ImportGroup>
-	<Compile Include="$(MSBuildThisFileDirectory)IsExternalInit.cs" Visible="false" />
-  </ImportGroup>
 </Project>
