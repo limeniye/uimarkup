@@ -1,4 +1,4 @@
-﻿namespace UIMarkup.Protocols.Core.Types;
+﻿namespace UIMarkup.Protocols.Core;
 
 public enum HorizontalAlignment
 {
