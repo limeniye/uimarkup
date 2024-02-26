@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections;
 
 namespace System.Extended;
 
@@ -147,8 +144,12 @@ public static class NotifyDictionaryChangedEventArgsExtensions
 	{
 		if (currentEntities.TryGetValue(changeKey, out TValue oldValue))
 		{
-			currentEntities[changeKey] = changeValue;
-			action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.ChangeKeyValuePair(changeKey, oldValue, changeValue));
+			if (oldValue == null && changeValue != null
+				|| !oldValue.Equals(changeValue))
+			{
+				currentEntities[changeKey] = changeValue;
+				action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.ChangeKeyValuePair(changeKey, oldValue, changeValue));
+			}
 		}
 		else
 		{
@@ -160,7 +161,8 @@ public static class NotifyDictionaryChangedEventArgsExtensions
 	/// Setting the key value in the dictionary
 	/// </summary>
 	/// <returns>
-	/// Returns false if there is no such key and instead of replacement, addition was performed
+	/// Returns false if there is no such key and instead of replacement, addition was performed.<br/>
+	/// If the key was found, but the value is equal with old value, then the result will be true, but the action will not rise
 	/// </returns>
 	public static bool SetAndRiseEvent<TKey, TValue>(
 		this IDictionary<TKey, TValue> currentEntities,
@@ -171,44 +173,18 @@ public static class NotifyDictionaryChangedEventArgsExtensions
 	{
 		if (currentEntities.TryGetValue(changeKey, out TValue oldValue))
 		{
-			currentEntities[changeKey] = changeValue;
-			action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.ChangeKeyValuePair(changeKey, oldValue, changeValue));
+			if (oldValue == null && changeValue != null
+				|| !oldValue.Equals(changeValue))
+			{
+				currentEntities[changeKey] = changeValue;
+				action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.ChangeKeyValuePair(changeKey, oldValue, changeValue));
+			}
 			return true;
 		}
 
 		currentEntities.Add(changeKey, changeValue);
 		action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.AddKeyValuePair(changeKey, changeValue));
 		return false;
-	}
-
-	/// <summary>
-	/// Setting the key value in the dictionary
-	/// </summary>
-	/// <returns><see cref="NotifyDictionaryChangedAction.Added"/> if value was added<br/>
-	/// <see cref="NotifyDictionaryChangedAction.Changed"/> if item was changed<br/>
-	/// <see cref="Nullable"/> result if nothing was happened</returns>
-	/// <remarks> <paramref name="changeValue"/> cannot be null </remarks>
-	public static NotifyDictionaryChangedAction? EqualBeforeAddOrSetAndRiseEvent<TKey, TValue>(
-		this IDictionary<TKey, TValue> currentEntities,
-		object sender,
-		EventHandler<NotifyDictionaryChangedEventArgs<TKey, TValue>> action,
-		TKey changeKey,
-		TValue changeValue)
-	{
-		if (currentEntities.TryGetValue(changeKey, out TValue oldValue))
-		{
-			if (oldValue == null || !oldValue.Equals(changeValue))
-			{
-				currentEntities[changeKey] = changeValue;
-				action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.ChangeKeyValuePair(changeKey, oldValue, changeValue));
-				return NotifyDictionaryChangedAction.Changed;
-			}
-			return null;
-		}
-
-		currentEntities.Add(changeKey, changeValue);
-		action?.Invoke(sender, NotifyActionDictionaryChangedEventArgs.AddKeyValuePair(changeKey, changeValue));
-		return NotifyDictionaryChangedAction.Added;
 	}
 
 	/// <summary>
