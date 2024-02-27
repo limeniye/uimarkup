@@ -67,16 +67,19 @@ public class Style
 
 	public void AddAttachedProperty(string propertyName, object value)
 	{
-		_propertyValues.AddAndRiseEvent(this, PropertyValuesChanged, propertyName, value);
+		throw new NotImplementedException();
+		//_propertyValues.AddAndRiseEvent(this, PropertyValuesChanged, propertyName, value);
 	}
 
 	public void ChangeAttachedProperty(string propertyName, object value)
 	{
-		_propertyValues.AddAndRiseEvent(this, PropertyValuesChanged, propertyName, value);
+		throw new NotImplementedException();
+		//_propertyValues.AddAndRiseEvent(this, PropertyValuesChanged, propertyName, value);
 	}
 
 	public void RemoveAttachedProperty(string propertyName)
 	{
-		_propertyValues.RemoveAndRiseEvent(this, PropertyValuesChanged, propertyName);
+		throw new NotImplementedException();
+		//_propertyValues.RemoveAndRiseEvent(this, PropertyValuesChanged, propertyName);
 	}
 }
