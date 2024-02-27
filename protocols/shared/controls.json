@@ -1,0 +1,52 @@
+{
+  "Controls": [
+    {
+      "Type": "ContentControl:UIElement",
+      "Properties": {
+        "Content": "UIElement",
+        "ContentTemplate": "Template"
+      }
+    },
+    {
+      "Type": "ItemsControl:UIElement",
+      "Properties": {
+        "Items": "Items",
+        "ItemTemplate": "Template"
+        // "StackingPattern": "?"
+      }
+    },
+    {
+      "Type": "SelectableItemsControl:ItemsControl",
+      "Properties": {
+        "SelectionMode": "SelectionMode",
+        "SelectedItems": "Items"
+        // "SelectionTemplate": "Template"
+      }
+    },
+    {
+      "Type": "Wrapper:ContentControl",
+      "Properties": {
+      }
+    },
+    {
+      "Type": "Button:ContentControl",
+      "Properties": {
+      }
+    },
+    {
+      "Type": "Stack:UIElement",
+      "Properties": {
+        "Items": "Items",
+        "Orientation": "Orientation"
+      }
+    },
+    {
+      "Type": "Grid:UIElement",
+      "Properties": {
+        "Items": "Items",
+        "Columns": "Columns",
+        "Rows": "Rows"
+      }
+    }
+  ]
+}
