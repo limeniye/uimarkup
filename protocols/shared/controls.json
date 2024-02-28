@@ -56,6 +56,20 @@
       }
     },
     {
+      "Type": "Toggle:Control",
+      "Properties": {
+        "State": "ToggleState"
+      }
+    },
+	{
+      "Type": "Switch:Toggle",
+      "Properties": { }
+    },
+	{
+      "Type": "CheckBox:Toggle",
+      "Properties": { }
+    },
+    {
       "Type": "ItemsControl:Control",
       "Properties": {
         "Items": "Items",
