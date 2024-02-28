@@ -111,6 +111,13 @@
       "Properties": {
         "Source": "ImageSource"
       }
+    },
+	{
+      "Type": "Expander:ContentControl",
+      "Properties": {
+        "IsExpanded": "bool",
+		"Orientation": "Orientation"
+      }
     }
   ]
 }
