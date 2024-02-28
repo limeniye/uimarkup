@@ -42,7 +42,7 @@
         "FontSize": "double",
         "TextDecorations": "TextDecorations",
         "LineHeight": "double",
-        "Wrap": "TextWrap",
+        "Wrap": "TextWrap"
       }
     },
 	{
@@ -52,7 +52,7 @@
         "FontSize": "double",
         "TextDecorations": "TextDecorations",
         "LineHeight": "double",
-        "Wrap": "TextWrap",
+        "Wrap": "TextWrap"
       }
     },
     {
