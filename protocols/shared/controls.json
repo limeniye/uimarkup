@@ -1,37 +1,61 @@
 {
   "Controls": [
     {
-      "Type": "ContentControl:UIElement",
+      "Type": "UIElement",
+      "Properties": {
+        "Name": "string",
+        "Width": "double",
+        "Height": "double",
+        "MinWidth": "double",
+        "MinHeight": "double",
+        "MaxWidth": "double",
+        "MaxHeight": "double",
+        "HorizontalAlignment": "HorizontalAlignment",
+        "VerticalAlignment": "VerticalAlignment",
+        "Color": "Color",
+        "Style": "Style",
+        "Margin": "Thickness",
+        "Opacity": "double",
+        "IsVisible": "bool",
+        "IsEnabled": "bool"
+      }
+    },
+	{
+      "Type": "Control:UIElement",
+      "Properties": {
+        "CornerRadius": "Thickness",
+        "Stroke": "Thickness",
+        "StrokeColor": "Color"
+      }
+    },
+    {
+      "Type": "ContentControl:Control",
       "Properties": {
         "Content": "UIElement",
         "ContentTemplate": "Template"
       }
     },
     {
-      "Type": "ItemsControl:UIElement",
+      "Type": "ItemsControl:Control",
       "Properties": {
         "Items": "Items",
-        "ItemTemplate": "Template"
-        // "StackingPattern": "?"
+        "ItemTemplate": "Template",
+        "_StackingPattern": "?"
       }
     },
     {
       "Type": "SelectableItemsControl:ItemsControl",
       "Properties": {
         "SelectionMode": "SelectionMode",
-        "SelectedItems": "Items"
-        // "SelectionTemplate": "Template"
-      }
-    },
-    {
-      "Type": "Wrapper:ContentControl",
-      "Properties": {
+        "SelectedItems": "Items",
+        "_SelectionTemplate": "Template"
       }
     },
     {
       "Type": "Button:ContentControl",
       "Properties": {
-      }
+		  
+	  }
     },
     {
       "Type": "Stack:UIElement",
