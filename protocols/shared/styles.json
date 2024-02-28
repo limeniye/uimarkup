@@ -1,0 +1,122 @@
+{
+  "Styles": [
+    {
+      "Type": "UIElement",
+      "Properties": {
+        "Width": "default",
+        "Height": "default",
+        "MinWidth": "default",
+        "MinHeight": "default",
+        "MaxWidth": "default",
+        "MaxHeight": "default",
+        "HorizontalAlignment": "HorizontalAlignment.Stretch",
+        "VerticalAlignment": "VerticalAlignment.Stretch",
+        "Color": "default",
+        "Style": "default",
+        "Margin": "default",
+        "Opacity": "1",
+        "IsVisible": "true",
+        "IsEnabled": "true"
+      }
+    },
+	{
+      "Type": "Control",
+      "Properties": {
+        "CornerRadius": "0",
+        "Stroke": "default",
+        "StrokeColor": "default"
+      }
+    },
+    {
+      "Type": "ContentControl",
+      "Properties": {
+        "Content": "default",
+        "ContentTemplate": "default"
+      }
+    },
+	{
+      "Type": "Label",
+      "Properties": {
+        "Text": "default",
+        "FontSize": "16",
+        "TextDecorations": "TextDecorations.None",
+        "LineHeight": "default",
+        "Wrap": "TextWrap.None"
+      }
+    },
+	{
+      "Type": "TextInput",
+      "Properties": {
+        "Text": "default",
+        "FontSize": "16",
+        "TextDecorations": "TextDecorations.None",
+        "LineHeight": "default",
+        "Wrap": "TextWrap.None"
+      }
+    },
+	{
+      "Type": "Toggle:Control",
+      "Properties": {
+        "State": "ToggleState.Unchecked"
+      }
+    },
+	{
+      "Type": "Switch:Toggle",
+      "Properties": { }
+    },
+	{
+      "Type": "CheckBox:Toggle",
+      "Properties": { }
+    },
+    {
+      "Type": "ItemsControl",
+      "Properties": {
+        "Items": "default",
+        "ItemTemplate": "default",
+        "_StackingPattern": "?"
+      }
+    },
+    {
+      "Type": "SelectableItemsControl",
+      "Properties": {
+        "SelectionMode": "SelectionMode.Single",
+        "SelectedItems": "default",
+        "_SelectionTemplate": "default"
+      }
+    },
+    {
+      "Type": "Button",
+      "Properties": {
+		  
+	  }
+    },
+    {
+      "Type": "Stack",
+      "Properties": {
+        "Items": "default",
+        "Orientation": "Orientation.Top"
+      }
+    },
+    {
+      "Type": "Grid",
+      "Properties": {
+        "Items": "default",
+        "Columns": "0",
+        "Rows": "0"
+      }
+    },
+	{
+      "Type": "Image:Control",
+      "Properties": {
+        "Source": "default"
+      }
+    },
+	{
+      "Type": "Expander:ContentControl",
+      "Properties": {
+        "IsExpanded": "false",
+		"Orientation": "Orientation.Bottom"
+      }
+    }
+  ]
+}
