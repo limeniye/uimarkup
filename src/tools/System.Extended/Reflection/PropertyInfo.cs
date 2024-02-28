@@ -9,4 +9,4 @@
 /// <remarks>
 /// Used in generated types
 /// </remarks>
-public sealed record PropertyInfo(Type SourceType, Type Property, string Name);
+public record struct PropertyInfo(Type SourceType, Type Property, string Name);
