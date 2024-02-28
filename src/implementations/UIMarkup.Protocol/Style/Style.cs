@@ -10,8 +10,8 @@ public class Style
 	/// <summary>
 	/// Describes the default properties
 	/// </summary>
-	/// <param name="targetType">A target type that inherits from UIElement</param>
-	/// <exception cref="UIElementTypeMismatchException">In case the type does not inherit from UIElement.</exception>
+	/// <param name="targetType">A target type that implements the <see cref="IElement"/> type</param>
+	/// <exception cref="IElementTypeMismatchException">In case the type does not inherit from IElement</exception>
 	public Style(Type targetType, string name = null)
 	{
 		Name = name ?? string.Empty;
@@ -31,7 +31,7 @@ public class Style
 	/// Creating the first BaseOn type
 	/// <example>
 	/// <code>
-	/// new Style(UIElement.ProtocolProperties.ToDictionary(kvp => kvp.Name, someValue));
+	/// new Style(typeof(Button).GetImportantProperties().ToDictionary(kvp => kvp.Name, someValue));
 	/// </code>
 	/// </example>
 	/// </summary>
