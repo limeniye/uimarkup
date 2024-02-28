@@ -55,7 +55,7 @@
         "Wrap": "TextWrap"
       }
     },
-    {
+	{
       "Type": "Toggle:Control",
       "Properties": {
         "State": "ToggleState"
@@ -104,6 +104,12 @@
         "Items": "Items",
         "Columns": "Columns",
         "Rows": "Rows"
+      }
+    },
+	{
+      "Type": "Image:Control",
+      "Properties": {
+        "Source": "ImageSource"
       }
     }
   ]
