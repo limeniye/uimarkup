@@ -19,32 +19,6 @@ public record UIElement(
 	bool IsEnabled = true)
 {
 	/// <summary>
-	/// Information about type properties
-	/// </summary>
-	/// <remarks>
-	/// When generating a type that inherits from the UIElement class, the value of this field will be redefined via the new operator.
-	/// </remarks>
-	public static readonly ReadOnlyCollection<PropertyInfo> ProtocolProperties = new(
-	[
-		new PropertyInfo(typeof(UIElement), typeof(Guid), nameof(Guid)),
-		new PropertyInfo(typeof(UIElement), typeof(string), nameof(Name)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(Width)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(Height)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(MinWidth)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(MinHeight)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(MaxWidth)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(MaxHeight)),
-		new PropertyInfo(typeof(UIElement), typeof(HorizontalAlignment), nameof(HorizontalAlignment)),
-		new PropertyInfo(typeof(UIElement), typeof(VerticalAlignment), nameof(VerticalAlignment)),
-		new PropertyInfo(typeof(UIElement), typeof(Color), nameof(Color)),
-		new PropertyInfo(typeof(UIElement), typeof(Style), nameof(Style)),
-		new PropertyInfo(typeof(UIElement), typeof(Thickness), nameof(Margin)),
-		new PropertyInfo(typeof(UIElement), typeof(double), nameof(Opacity)),
-		new PropertyInfo(typeof(UIElement), typeof(bool), nameof(IsVisible)),
-		new PropertyInfo(typeof(UIElement), typeof(bool), nameof(IsEnabled))
-	]);
-
-	/// <summary>
 	/// Contains properties and values ​​of generated UIElement types.
 	/// Replaced in derived classes.
 	/// </summary>
