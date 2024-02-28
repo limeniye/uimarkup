@@ -1,4 +1,4 @@
-﻿namespace UIMarkup.Protocol.Foundation;
+﻿namespace UIMarkup.Protocol;
 
 [Flags]
 public enum TextDecorations

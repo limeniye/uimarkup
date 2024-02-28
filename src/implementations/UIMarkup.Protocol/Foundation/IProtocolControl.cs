@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Extended.Reflection;
 
-namespace UIMarkup.Protocol.Foundation;
+namespace UIMarkup.Protocol;
 
 internal interface IProtocolControl
 {
