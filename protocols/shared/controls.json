@@ -35,6 +35,26 @@
         "ContentTemplate": "Template"
       }
     },
+	{
+      "Type": "Label:UIElement",
+      "Properties": {
+        "Text": "string",
+        "FontSize": "double",
+        "TextDecorations": "TextDecorations",
+        "LineHeight": "double",
+        "Wrap": "TextWrap",
+      }
+    },
+	{
+      "Type": "TextInput:Control",
+      "Properties": {
+        "Text": "string",
+        "FontSize": "double",
+        "TextDecorations": "TextDecorations",
+        "LineHeight": "double",
+        "Wrap": "TextWrap",
+      }
+    },
     {
       "Type": "ItemsControl:Control",
       "Properties": {
