@@ -1,0 +1,78 @@
+{
+  "Templates": [
+	{
+      "Type": "TextInput",
+      "Properties": {
+        "Text": "default",
+        "FontSize": "16",
+        "TextDecorations": "TextDecorations.None",
+        "LineHeight": "default",
+        "Wrap": "TextWrap.None"
+      }
+    },
+	{
+      "Type": "Toggle",
+      "Properties": {
+        "State": "ToggleState.Unchecked"
+      }
+    },
+	{
+      "Type": "Switch:Toggle",
+      "Properties": { }
+    },
+	{
+      "Type": "CheckBox:Toggle",
+      "Properties": { }
+    },
+    {
+      "Type": "ItemsControl",
+      "Properties": {
+        "Items": "default",
+        "ItemTemplate": "default",
+        "_StackingPattern": "?"
+      }
+    },
+    {
+      "Type": "SelectableItemsControl",
+      "Properties": {
+        "SelectionMode": "SelectionMode.Single",
+        "SelectedItems": "default",
+        "_SelectionTemplate": "default"
+      }
+    },
+    {
+      "Type": "Button",
+      "Properties": {
+		  
+	  }
+    },
+    {
+      "Type": "Stack",
+      "Properties": {
+        "Items": "default",
+        "Orientation": "Orientation.Top"
+      }
+    },
+    {
+      "Type": "Grid",
+      "Properties": {
+        "Items": "default",
+        "Columns": "0",
+        "Rows": "0"
+      }
+    },
+	{
+      "Type": "Image",
+      "Properties": {
+        "Source": "default"
+      }
+    },
+	{
+      "Type": "Expander",
+      "Properties": {
+        "IsExpanded": "false",
+		"Orientation": "Orientation.Bottom"
+      }
+    }
+  ]
+}
