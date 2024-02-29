@@ -55,7 +55,7 @@
       }
     },
 	{
-      "Type": "Toggle:Control",
+      "Type": "Toggle",
       "Properties": {
         "State": "ToggleState.Unchecked"
       }
@@ -106,13 +106,13 @@
       }
     },
 	{
-      "Type": "Image:Control",
+      "Type": "Image",
       "Properties": {
         "Source": "default"
       }
     },
 	{
-      "Type": "Expander:ContentControl",
+      "Type": "Expander",
       "Properties": {
         "IsExpanded": "false",
 		"Orientation": "Orientation.Bottom"
