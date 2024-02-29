@@ -25,7 +25,8 @@
       "Properties": {
         "CornerRadius": "Thickness",
         "Stroke": "Thickness",
-        "StrokeColor": "Color"
+		"StrokeColor": "Color",
+		"Template": "Template"
       }
     },
     {
