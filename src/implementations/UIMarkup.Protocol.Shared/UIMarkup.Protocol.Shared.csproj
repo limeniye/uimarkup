@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\..\..\protocols\shared\controls.json" Link="controls.json" />
-    <Content Include="..\..\..\protocols\shared\styles.json" Link="styles.json" />
-    <Content Include="..\..\..\protocols\shared\templates.json" Link="templates.json" />
+    <Content Include="..\..\..\protocols\standard\controls.json" Link="controls.json" />
+    <Content Include="..\..\..\protocols\standard\styles.json" Link="styles.json" />
+    <Content Include="..\..\..\protocols\standard\templates.json" Link="templates.json" />
   </ItemGroup>
 
   <ProjectExtensions>
