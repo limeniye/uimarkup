@@ -5,6 +5,5 @@ namespace UIMarkup.Protocol;
 
 internal interface IProtocolControl
 {
-	static ReadOnlyCollection<PropertyInfo> GetProtocolProperties => throw new NotImplementedException();
 	ReadOnlyCollection<PropertyValue> GetProtocolPropertyValues();
 }
