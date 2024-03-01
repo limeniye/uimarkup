@@ -10,6 +10,10 @@
     <Content Include="..\..\..\protocols\standard\templates.json" Link="templates.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj" />
+  </ItemGroup>
+
   <ProjectExtensions>
 	  <VisualStudio>
 		  <UserProperties />
