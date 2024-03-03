@@ -56,6 +56,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIMarkup.Protocol.Standard"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIMarkup.Protocol.SourceGenerators", "..\..\frameworks\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj", "{1E1BDD0C-104E-4B31-A84B-21DA0AA31318}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIMarkup.Protocol.SourceGenerators.Tests", "..\..\frameworks\UIMarkup.Protocol.SourceGenerators.Tests\UIMarkup.Protocol.SourceGenerators.Tests.csproj", "{C811C471-5255-4CDC-B06B-9495F21DA895}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
