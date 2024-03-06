@@ -2,21 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\..\..\protocols\standard\controls.json" Link="controls.json" />
-    <Content Include="..\..\..\protocols\standard\styles.json" Link="styles.json" />
-    <Content Include="..\..\..\protocols\standard\templates.json" Link="templates.json" />
+    <AdditionalFiles Include="..\..\..\protocols\standard\controls.json" Link="controls.json" />
+    <AdditionalFiles Include="..\..\..\protocols\standard\styles.json" Link="styles.json" />
+    <AdditionalFiles Include="..\..\..\protocols\standard\templates.json" Link="templates.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj" />
+    <ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj"
+					  OutputItemType="Analyzer"
+					  ReferenceOutputAssembly="true" />
   </ItemGroup>
-
-  <ProjectExtensions>
-	  <VisualStudio>
-		  <UserProperties />
-	  </VisualStudio>
-  </ProjectExtensions>
 </Project>
