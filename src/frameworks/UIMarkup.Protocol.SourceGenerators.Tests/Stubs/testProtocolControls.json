@@ -1,0 +1,24 @@
+{
+  "Controls": [
+    {
+      "Type": "UIElement",
+      "Properties": {
+        "Name": "string",
+        "Width": "double",
+        "Height": "double",
+        "MinWidth": "double",
+        "MinHeight": "double",
+        "MaxWidth": "double",
+        "MaxHeight": "double",
+        "HorizontalAlignment": "HorizontalAlignment",
+        "VerticalAlignment": "VerticalAlignment",
+        "Color": "Color",
+        "Style": "Style",
+        "Margin": "Thickness",
+        "Opacity": "double",
+        "IsVisible": "bool",
+        "IsEnabled": "bool"
+      }
+    }
+  ]
+}
