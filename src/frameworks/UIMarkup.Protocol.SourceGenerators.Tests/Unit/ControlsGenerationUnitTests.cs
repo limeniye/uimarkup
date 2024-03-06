@@ -10,7 +10,7 @@ public class ControlsGenerationUnitTests
 	{
 		// arrange
 		var controlsGenerator = new ControlGenerator();
-		var additional = TestsHelper.GetAdditionalText("Stubs\\testProtocolControls.json");
+		var additional = TestsHelper.GetAdditionalText("Stubs\\testUIElementControl.json");
 		var references = new[]
 		{
 			MetadataReference.CreateFromFile(typeof(object).Assembly.Location),

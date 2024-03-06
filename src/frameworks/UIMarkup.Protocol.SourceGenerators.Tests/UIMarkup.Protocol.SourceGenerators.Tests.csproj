@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="Stubs/testProtocolControls.json">
+    <AdditionalFiles Include="Stubs\testUIElementControl.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AdditionalFiles>
   </ItemGroup>
