@@ -1,20 +1,18 @@
 <Project ToolsVersion="15.0">
   <ItemGroup>
     <!-- Common -->
-	<PackageVersion Include="System.Text.Json" Version="8.0.2" />
-  
+    <PackageVersion Include="System.Collections.Immutable" Version="8.0.0" />
+    <PackageVersion Include="System.Text.Json" Version="8.0.2" />
     <!-- Generations -->
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
-	
-	<!-- Tests -->
-	<PackageVersion Include="xunit.runner.visualstudio" Version="2.5.7" />
-	<PackageVersion Include="xunit" Version="2.7.0" />
-	<PackageVersion Include="coverlet.collector" Version="6.0.1" />
-	<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-	
-	<!-- Generation Tests -->
-	<PackageVersion Include="Verify.Xunit" Version="23.2.2" />
-	<PackageVersion Include="Verify.SourceGenerators" Version="2.2.0" />
+    <!-- Tests -->
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.7" />
+    <PackageVersion Include="xunit" Version="2.7.0" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.1" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <!-- Generation Tests -->
+    <PackageVersion Include="Verify.Xunit" Version="23.2.2" />
+    <PackageVersion Include="Verify.SourceGenerators" Version="2.2.0" />
   </ItemGroup>
 </Project>
