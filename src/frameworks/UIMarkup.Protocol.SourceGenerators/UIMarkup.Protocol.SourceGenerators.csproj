@@ -6,13 +6,15 @@
   </PropertyGroup>
 
   <PropertyGroup>
+	<!--<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>-->
+	<!--<CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>-->
+	<IsRoslynComponent>true</IsRoslynComponent>
+	<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+	  
 	<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
-	<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	<IsRoslynComponent>true</IsRoslynComponent>
 	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-	<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,5 +25,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UIMarkup.Protocol\UIMarkup.Protocol.csproj" />
-  </ItemGroup>
+  </ItemGroup>	
 </Project>
