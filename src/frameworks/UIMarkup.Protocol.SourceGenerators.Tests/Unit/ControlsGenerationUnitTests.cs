@@ -10,7 +10,27 @@ public class ControlsGenerationUnitTests
 	{
 		// arrange
 		var controlsGenerator = new ControlGenerator();
-		var additional = TestsHelper.GetAdditionalText("Stubs\\testUIElementControl.json");
+		var additional = TestsHelper.GetAdditionalText("Stubs\\test_UIElement_control.json");
+		var references = new[]
+		{
+			MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+			MetadataReference.CreateFromFile(typeof(HorizontalAlignment).Assembly.Location)
+		};
+
+		// act
+		var driver = controlsGenerator.RunGeneratorDriver(additional, references);
+		//var runResult = driver.GetRunResult().Results.Single();
+
+		// assert
+		return Verify(driver).UseDirectory("Snapshots");
+	}
+
+	[Fact]
+	public Task ControlGenerator_GenerateInheritedControl_Verify()
+	{
+		// arrange
+		var controlsGenerator = new ControlGenerator();
+		var additional = TestsHelper.GetAdditionalText("Stubs\\test_inherited_control.json");
 		var references = new[]
 		{
 			MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
