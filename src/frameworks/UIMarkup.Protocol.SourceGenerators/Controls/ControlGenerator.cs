@@ -4,7 +4,6 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
-
 namespace UIMarkup.Protocol.SourceGenerators;
 
 [Generator]
@@ -39,7 +38,8 @@ public class ControlGenerator : ISourceGenerator
 		}
 
 		// Json serialization
-		var controls = GetControlsFromJson(sbJson.ToString());
+		var controlsSchemaGenerator = new ControlsJsonSchemaGenerator();
+		var controls = controlsSchemaGenerator.GenerateSchema(sbJson.ToString());
 
 		if (controls.Count == 0)
 		{
@@ -64,15 +64,6 @@ public class ControlGenerator : ISourceGenerator
 
 		context.AddSource($"{hintName}.g.cs", SourceText.From(controlRecordText, Encoding.UTF8));
 		_cachedSyntaxTrees[hintName] = syntaxTree;
-	}
-
-	private static IReadOnlyCollection<ControlJsonSchemaType> GetControlsFromJson(string json)
-	{
-		var schema = JsonSerializer.Deserialize<ControlsJsonSchema>(json, new JsonSerializerOptions
-		{
-			PropertyNameCaseInsensitive = true
-		});
-		return schema.Controls;
 	}
 
 	private static SyntaxTree CreateControlRecordSyntaxTree(string type, Dictionary<string, string> properties, GeneratorExecutionContext context)
@@ -136,19 +127,41 @@ public class ControlGenerator : ISourceGenerator
 	public void Initialize(GeneratorInitializationContext context) { }
 }
 
-public class ControlsJsonSchema
+internal class ControlsJsonSchema
 {
 	public IReadOnlyCollection<ControlJsonSchemaType> Controls { get; init; } = Array.Empty<ControlJsonSchemaType>();
 }
 
-public class ControlJsonSchemaType
+internal class ControlJsonSchemaType
 {
 	public string Type { get; init; } = string.Empty;
 	public Dictionary<string, string> Properties { get; init; }
 }
 
-public class Property
+internal class Property
 {
 	public string Name { get; init; } = string.Empty;
 	public string Type { get; init; } = string.Empty;
+}
+
+internal class ControlsJsonSchemaGenerator
+{
+	public IReadOnlyCollection<ControlJsonSchemaType> GenerateSchema(string json)
+	{
+		var schema = JsonSerializer.Deserialize<ControlsJsonSchema>(json, new JsonSerializerOptions
+		{
+			PropertyNameCaseInsensitive = true
+		});
+
+		foreach (var control in schema.Controls)
+		{
+			var propertiesToRemove = control.Properties.Keys.Where(key => key.StartsWith("_"));
+			foreach (var propertyToRemove in propertiesToRemove)
+			{
+				control.Properties.Remove(propertyToRemove);
+			}
+		}
+
+		return schema.Controls;
+	}
 }
