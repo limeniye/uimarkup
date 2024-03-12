@@ -11,12 +11,26 @@ namespace UIMarkup.Protocol.SourceGenerators;
 public class ControlGenerator : ISourceGenerator
 {
 	private static readonly Dictionary<string, SyntaxTree> _cachedSyntaxTrees = new Dictionary<string, SyntaxTree>();
+	private GeneratorExecutionContext _context;
+	private Dictionary<string, JsonFileMonitor> _jsonFileMonitors = new();
 
 	public void Execute(GeneratorExecutionContext context)
 	{
+		this._context = context;
+		_cachedSyntaxTrees.Clear();
 		// Get text for serialization
-		var schemaJson = context.AdditionalFiles.First();
-		var sourceText = schemaJson.GetText();
+		var controlsJsonAdditionalFile = context.AdditionalFiles.First();
+		var controlsJsonAdditionalFilePath = controlsJsonAdditionalFile.Path;
+		if (!_jsonFileMonitors.ContainsKey(controlsJsonAdditionalFilePath))
+		{
+			var jsonFileMonitoring = new JsonFileMonitor(controlsJsonAdditionalFilePath, this);
+			_jsonFileMonitors.Add
+				(
+					controlsJsonAdditionalFilePath,
+					jsonFileMonitoring
+				);
+		}
+		var sourceText = controlsJsonAdditionalFile.GetText();
 
 		StringBuilder sbJson = new StringBuilder();
 		foreach (var line in sourceText.Lines)
@@ -37,6 +51,11 @@ public class ControlGenerator : ISourceGenerator
 			var controlRecordSyntaxTree = CreateControlRecordSyntaxTree(control.Type, control.Properties, context);
 			AddSyntaxTreeWithCash(context, $"{control.Type.Replace(" ", "").Split(':')[0]}", controlRecordSyntaxTree);
 		}
+	}
+
+	public void Execute()
+	{
+		Execute(_context);
 	}
 
 	private void AddSyntaxTreeWithCash(GeneratorExecutionContext context, string hintName, SyntaxTree syntaxTree)
