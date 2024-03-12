@@ -44,7 +44,7 @@ public class ControlGenerator : ISourceGenerator
 		var controlRecordText = syntaxTree.GetRoot().NormalizeWhitespace().ToFullString();
 
 		context.AddSource($"{hintName}.g.cs", SourceText.From(controlRecordText, Encoding.UTF8));
-		_cachedSyntaxTrees.Add(hintName, syntaxTree);
+		_cachedSyntaxTrees[hintName] = syntaxTree;
 	}
 
 	private static IReadOnlyCollection<ControlJsonSchemaType> GetControlsFromJson(string json)
@@ -63,6 +63,7 @@ public class ControlGenerator : ISourceGenerator
 			properties.Select(x =>
 				SyntaxFactory.Parameter(SyntaxFactory.Identifier(x.Key))
 				.WithType(SyntaxFactory.ParseTypeName(x.Value))
+				.WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed)
 				)
 			);
 
@@ -86,110 +87,32 @@ public class ControlGenerator : ISourceGenerator
 						p => SyntaxFactory.Argument(SyntaxFactory.IdentifierName(p.Identifier))
 						)
 					);
-
-			//NameColonSyntax typeName = SyntaxFactory.NameColon(SyntaxFactory.IdentifierName(typeAndInherited[1]));
-			//ConstructorInitializerSyntax initializer = SyntaxFactory.ConstructorInitializer(
-			//	SyntaxKind.ThisConstructorInitializer,
-			//	SyntaxFactory.Token(SyntaxKind.ColonToken),
-			//	SyntaxFactory.ParseToken(typeAndInherited[1]),
-			//	SyntaxFactory.ArgumentList(inheritedArgumentList));
-
-			//var inheritedConstructor = SyntaxFactory.ConstructorInitializer(
-			//	SyntaxKind.ThisConstructorInitializer,
-			//	SyntaxFactory.Token(SyntaxKind.ColonToken),
-			//	SyntaxFactory.ArgumentList(test),
-			//	SyntaxFactory.IdentifierName(typeAndInherited[1])
-			//	);
+			var recordAndInheritedParameters = parameters.AddRange(inheritedParametersSyntax);
 
 			recordDeclaration = recordDeclaration
-				.WithParameterList(SyntaxFactory.ParameterList(inheritedParametersSyntax))
-				//.WithBaseList(test2)
-				//.AddBaseListTypes(SyntaxFactory.SimpleBaseType(SyntaxFactory.ParseTypeName(typeAndInherited[1])))
-				.AddMembers(
-					SyntaxFactory.ConstructorDeclaration(typeAndInherited[1])
-					.WithInitializer(
-						SyntaxFactory.ConstructorInitializer(
-							SyntaxKind.BaseConstructorInitializer,
-							//SyntaxFactory.IdentifierName(typeAndInherited[1]),
-							SyntaxFactory.ArgumentList(inheritedArgumentList)
-							)
-						)
-				)
-				//.AddMembers(SyntaxFactory.ConstructorDeclaration(typeAndInherited[1])
-				//.AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
-				//.WithParameterList(SyntaxFactory.ParameterList(inheritedParametersSyntax))
-				;
-
-			//recordDeclaration = recordDeclaration.WithBaseList(
-			//	SyntaxFactory.BaseList(
-			//		SyntaxFactory.SingletonSeparatedList<BaseTypeSyntax>(
-			//			SyntaxFactory.SimpleBaseType(
-			//				SyntaxFactory.ParseTypeName(typeAndInherited[1])
-			//			)
-			//		)
-			//	)
-			//);
-
-			//var derivedConstructor = SyntaxFactory.ConstructorDeclaration(typeAndInherited[0])
-			//	.WithModifiers(SyntaxFactory.TokenList(SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
-			//	.WithParameterList(SyntaxFactory.ParameterList(inheritedParametersSyntax))
-			//	.WithInitializer(
-			//		SyntaxFactory.ConstructorInitializer(
-			//			SyntaxKind.BaseConstructorInitializer,
-			//			SyntaxFactory.ArgumentList(
-			//				SyntaxFactory.SeparatedList(
-			//					inheritedParametersSyntax.Select(parameter =>
-			//						SyntaxFactory.Argument(SyntaxFactory.IdentifierName(parameter.Identifier))
-			//					)
-			//				)
-			//			)
-			//		)
-			//	);
-			//recordDeclaration = recordDeclaration.AddMembers(derivedConstructor);
+				.WithParameterList(SyntaxFactory.ParameterList(recordAndInheritedParameters))
+				.AddBaseListTypes(SyntaxFactory.SimpleBaseType(
+					SyntaxFactory.ParseTypeName($"{typeAndInherited[1]}({inheritedArgumentList})"))
+				);
 		}
 		else
 		{
 			recordDeclaration = recordDeclaration
-						.WithParameterList(SyntaxFactory.ParameterList(parameters))
-						.WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken));
+						.WithParameterList(SyntaxFactory.ParameterList(parameters));
 		}
 
 		SyntaxTree tree = SyntaxFactory.SyntaxTree(
 			SyntaxFactory.CompilationUnit().AddMembers(
 				SyntaxFactory.NamespaceDeclaration(SyntaxFactory.ParseName("UIMarkup.Protocol"))
-				.AddMembers(recordDeclaration)
+				.AddMembers(
+					recordDeclaration
+					.WithOpenBraceToken(SyntaxFactory.Token(SyntaxKind.OpenBraceToken))
+					.WithCloseBraceToken(SyntaxFactory.Token(SyntaxKind.CloseBraceToken))
+					)
 			)
 		);
 		return tree;
 	}
-
-	/*
-	// Створення синтаксичного дерева
-			SyntaxTree tree = SyntaxFactory.SyntaxTree(
-				SyntaxFactory.CompilationUnit()
-					.AddUsings(
-						SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System"))
-					)
-					.AddMembers(
-						SyntaxFactory.NamespaceDeclaration(SyntaxFactory.ParseName("MyNamespace"))
-							.AddMembers(
-								SyntaxFactory.ClassDeclaration("MyClass")
-									.AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
-									.AddMembers(
-										SyntaxFactory.MethodDeclaration(SyntaxFactory.ParseTypeName("void"), "MyMethod")
-											.WithModifiers(SyntaxFactory.TokenList(SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
-											.WithBody(SyntaxFactory.Block())
-									)
-							)
-					)
-			);
-
-			// Збереження синтаксичного дерева в файлі
-			using (var fileStream = new FileStream("MyFile.cs", FileMode.Create))
-			{
-				tree.GetRoot().NormalizeWhitespace().WriteTo(fileStream);
-			}
-	 */
 
 	public void Initialize(GeneratorInitializationContext context) { }
 }
