@@ -6,15 +6,25 @@
 	<IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
+  </PropertyGroup>
+	
   <ItemGroup>
-    <AdditionalFiles Include="..\..\..\protocols\standard\controls.json" Link="controls.json" />
-    <AdditionalFiles Include="..\..\..\protocols\standard\styles.json" Link="styles.json" />
-    <AdditionalFiles Include="..\..\..\protocols\standard\templates.json" Link="templates.json" />
+	<AdditionalFiles Include="..\..\..\protocols\standard\controls.json" Link="controls.json">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</AdditionalFiles>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj"
-					  OutputItemType="Analyzer"
-					  ReferenceOutputAssembly="true" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+	<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\UIMarkup.Protocol\UIMarkup.Protocol.csproj" />
   </ItemGroup>
 </Project>
