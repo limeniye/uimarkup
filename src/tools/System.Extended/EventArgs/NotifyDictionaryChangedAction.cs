@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace System.Extended;
+﻿namespace System.Extended;
 
 public enum NotifyDictionaryChangedAction
 {
