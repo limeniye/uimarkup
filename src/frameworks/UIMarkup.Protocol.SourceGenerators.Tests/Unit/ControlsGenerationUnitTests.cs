@@ -45,6 +45,26 @@ public class ControlsGenerationUnitTests
 		return Verify(driver).UseDirectory("Snapshots");
 	}
 
+	[Fact]
+	public Task ControlGenerator_GenerateUIElementTwice_Verify()
+	{
+		// arrange
+		var controlsGenerator = new ControlGenerator();
+		var additional = TestsHelper.GetAdditionalText("Stubs\\test_UIElement_control.json");
+		var references = new[]
+		{
+			MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+			MetadataReference.CreateFromFile(typeof(HorizontalAlignment).Assembly.Location)
+		};
+
+		// act
+		controlsGenerator.RunGeneratorDriver(additional, references);
+		var driverSecond = controlsGenerator.RunGeneratorDriver(additional, references);
+		//var runResult = driver.GetRunResult().Results.Single();
+
+		// assert
+		return Verify(driverSecond).UseDirectory("Snapshots");
+	}
 	//private static GeneratedCode? GetGeneratedOutput(
 	//  string sourceCode,
 	//  params AdditionalText[] additionalFiles)
