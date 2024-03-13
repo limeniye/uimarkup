@@ -1,7 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("UIMarkup.Protocol")]
-namespace System.Extended.Reflection;
+﻿namespace System.Extended.Reflection;
 
 /// <summary>
 /// Information about the type property
@@ -12,4 +9,4 @@ namespace System.Extended.Reflection;
 /// <remarks>
 /// Used in generated types
 /// </remarks>
-internal record struct PropertyInfo(Type SourceType, Type Property, string Name);
+public record struct PropertyInfo(Type SourceType, Type Property, string Name);
