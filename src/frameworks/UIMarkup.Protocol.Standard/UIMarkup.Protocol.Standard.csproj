@@ -14,13 +14,10 @@
   </PropertyGroup>
 	
   <ItemGroup>
-	<AdditionalFiles Include="..\..\..\protocols\standard\controls.json" Link="controls.json">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</AdditionalFiles>
+	<AdditionalFiles Include="..\..\..\protocols\standard\controls.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
-
 	
-  <ItemGroup>
+  <ItemGroup>	  
 	<ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
