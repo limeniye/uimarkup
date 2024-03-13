@@ -65,6 +65,26 @@ public class ControlsGenerationUnitTests
 		// assert
 		return Verify(driverSecond).UseDirectory("Snapshots");
 	}
+
+	[Fact]
+	public Task ControlGenerator_GenerateAllControls_Verify()
+	{
+		// arrange
+		var controlsGenerator = new ControlGenerator();
+		var additional = TestsHelper.GetAdditionalText("Stubs\\test_all_controls.json");
+		var references = new[]
+		{
+			MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+			MetadataReference.CreateFromFile(typeof(HorizontalAlignment).Assembly.Location)
+		};
+
+		// act
+		var driver = controlsGenerator.RunGeneratorDriver(additional, references);
+		//var runResult = driver.GetRunResult().Results.Single();
+
+		// assert
+		return Verify(driver).UseDirectory("Snapshots");
+	}
 	//private static GeneratedCode? GetGeneratedOutput(
 	//  string sourceCode,
 	//  params AdditionalText[] additionalFiles)

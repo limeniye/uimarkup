@@ -1,0 +1,124 @@
+{
+  "Controls": [
+    {
+      "Type": "UIElement",
+      "Properties": {
+        "Name": "string",
+        "Width": "double",
+        "Height": "double",
+        "MinWidth": "double",
+        "MinHeight": "double",
+        "MaxWidth": "double",
+        "MaxHeight": "double",
+        "HorizontalAlignment": "HorizontalAlignment",
+        "VerticalAlignment": "VerticalAlignment",
+        "Color": "Color",
+        "Style": "Style",
+        "Margin": "Thickness",
+        "Opacity": "double",
+        "IsVisible": "bool",
+        "IsEnabled": "bool"
+      }
+    },
+	{
+      "Type": "Control:UIElement",
+      "Properties": {
+        "CornerRadius": "Thickness",
+        "Stroke": "Thickness",
+		"StrokeColor": "Color",
+		"Template": "Template"
+      }
+    },
+    {
+      "Type": "ContentControl:Control",
+      "Properties": {
+        "Content": "UIElement",
+        "ContentTemplate": "Template"
+      }
+    },
+	{
+      "Type": "Label:UIElement",
+      "Properties": {
+        "Text": "string",
+        "FontSize": "double",
+        "TextDecorations": "TextDecorations",
+        "LineHeight": "double",
+        "Wrap": "TextWrap"
+      }
+    },
+	{
+      "Type": "TextInput:Control",
+      "Properties": {
+        "Text": "string",
+        "FontSize": "double",
+        "TextDecorations": "TextDecorations",
+        "LineHeight": "double",
+        "Wrap": "TextWrap"
+      }
+    },
+	{
+      "Type": "Toggle:Control",
+      "Properties": {
+        "State": "ToggleState"
+      }
+    },
+	{
+      "Type": "Switch:Toggle",
+      "Properties": { }
+    },
+	{
+      "Type": "CheckBox:Toggle",
+      "Properties": { }
+    },
+    {
+      "Type": "ItemsControl:Control",
+      "Properties": {
+        "Items": "Items",
+        "ItemTemplate": "Template",
+        "_StackingPattern": "?"
+      }
+    },
+    {
+      "Type": "SelectableItemsControl:ItemsControl",
+      "Properties": {
+        "SelectionMode": "SelectionMode",
+        "SelectedItems": "Items",
+        "_SelectionTemplate": "Template"
+      }
+    },
+    {
+      "Type": "Button:ContentControl",
+      "Properties": {
+		  
+	  }
+    },
+    {
+      "Type": "Stack:UIElement",
+      "Properties": {
+        "Items": "Items",
+        "Orientation": "Orientation"
+      }
+    },
+    {
+      "Type": "Grid:UIElement",
+      "Properties": {
+        "Items": "Items",
+        "Columns": "Columns",
+        "Rows": "Rows"
+      }
+    },
+	{
+      "Type": "Image:Control",
+      "Properties": {
+        "Source": "ImageSource"
+      }
+    },
+	{
+      "Type": "Expander:ContentControl",
+      "Properties": {
+        "IsExpanded": "bool",
+		"Orientation": "Orientation"
+      }
+    }
+  ]
+}
