@@ -2,7 +2,7 @@
   <ItemGroup>
     <!-- Common -->
     <PackageVersion Include="System.Collections.Immutable" Version="8.0.0" />
-    <PackageVersion Include="System.Text.Json" Version="8.0.2" />
+    <PackageVersion Include="System.Text.Json" Version="8.0.3" />
     <!-- Generations -->
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
