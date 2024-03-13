@@ -7,11 +7,9 @@
 
   <PropertyGroup>
 	<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-	  
 	<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,8 +17,8 @@
 	<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
 	<PackageReference Include="System.Text.Json" />
   </ItemGroup>
-
+	
   <ItemGroup>
-    <ProjectReference Include="..\UIMarkup.Protocol\UIMarkup.Protocol.csproj" />
+    <InternalsVisibleTo Include="UIMarkup.Protocol.SourceGenerators.Tests" />
   </ItemGroup>
 </Project>
