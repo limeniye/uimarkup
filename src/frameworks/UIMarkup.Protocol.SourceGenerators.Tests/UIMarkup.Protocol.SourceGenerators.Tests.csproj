@@ -40,8 +40,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="Stubs\testUIElementControl.json">
+    <AdditionalFiles Include="Stubs\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Unit\Snapshots\" />
   </ItemGroup>
 </Project>
