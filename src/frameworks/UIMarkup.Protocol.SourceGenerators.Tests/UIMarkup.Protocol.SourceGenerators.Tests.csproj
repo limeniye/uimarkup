@@ -32,7 +32,6 @@
   <ItemGroup>
     <ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj" />
     <ProjectReference Include="..\UIMarkup.Protocol\UIMarkup.Protocol.csproj" />
-	<CompilerVisibleItemMetadata Include="AdditionalFiles" MetadataName="SourceItemGroup" />
   </ItemGroup>
 
   <ItemGroup>
