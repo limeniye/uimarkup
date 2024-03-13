@@ -18,7 +18,11 @@ public class ControlGenerator : ISourceGenerator
 		this._context = context;
 		_cachedSyntaxTrees.Clear();
 		// Get text for serialization
-		var controlsJsonAdditionalFile = context.AdditionalFiles.First();
+		var controlsJsonAdditionalFile = context.AdditionalFiles.FirstOrDefault();
+		if (controlsJsonAdditionalFile == null)
+		{
+			return;
+		}
 		var controlsJsonAdditionalFilePath = controlsJsonAdditionalFile.Path;
 		if (!_jsonFileMonitors.ContainsKey(controlsJsonAdditionalFilePath))
 		{
