@@ -4,9 +4,9 @@ public class JsonFileMonitor
 {
 	private readonly string jsonFilePath;
 	private FileSystemWatcher watcher;
-	private readonly ControlGenerator generator;
+	private readonly ControlsGenerator generator;
 
-	public JsonFileMonitor(string filePath, ControlGenerator sourceGenerator)
+	public JsonFileMonitor(string filePath, ControlsGenerator sourceGenerator)
 	{
 		jsonFilePath = filePath;
 		generator = sourceGenerator;

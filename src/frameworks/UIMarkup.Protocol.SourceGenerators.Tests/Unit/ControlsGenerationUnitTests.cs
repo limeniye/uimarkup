@@ -9,7 +9,7 @@ public class ControlsGenerationUnitTests
 	public Task ControlGenerator_GenerateUIElement_Verify()
 	{
 		// arrange
-		var controlsGenerator = new ControlGenerator();
+		var controlsGenerator = new ControlsGenerator();
 		var additional = TestsHelper.GetAdditionalText("Stubs\\test_UIElement_control.json");
 		var references = new[]
 		{
@@ -29,7 +29,7 @@ public class ControlsGenerationUnitTests
 	public Task ControlGenerator_GenerateInheritedControl_Verify()
 	{
 		// arrange
-		var controlsGenerator = new ControlGenerator();
+		var controlsGenerator = new ControlsGenerator();
 		var additional = TestsHelper.GetAdditionalText("Stubs\\test_inherited_control.json");
 		var references = new[]
 		{
@@ -49,7 +49,7 @@ public class ControlsGenerationUnitTests
 	public Task ControlGenerator_GenerateUIElementTwice_Verify()
 	{
 		// arrange
-		var controlsGenerator = new ControlGenerator();
+		var controlsGenerator = new ControlsGenerator();
 		var additional = TestsHelper.GetAdditionalText("Stubs\\test_UIElement_control.json");
 		var references = new[]
 		{
@@ -70,7 +70,7 @@ public class ControlsGenerationUnitTests
 	public Task ControlGenerator_GenerateAllControls_Verify()
 	{
 		// arrange
-		var controlsGenerator = new ControlGenerator();
+		var controlsGenerator = new ControlsGenerator();
 		var additional = TestsHelper.GetAdditionalText("Stubs\\test_all_controls.json");
 		var references = new[]
 		{

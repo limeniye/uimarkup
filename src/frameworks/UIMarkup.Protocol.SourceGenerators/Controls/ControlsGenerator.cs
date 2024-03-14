@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Text;
 namespace UIMarkup.Protocol.SourceGenerators;
 
 [Generator]
-public class ControlGenerator : ISourceGenerator
+public class ControlsGenerator : ISourceGenerator
 {
 	private static readonly Dictionary<string, SyntaxTree> _cachedSyntaxTrees = new Dictionary<string, SyntaxTree>();
 	private GeneratorExecutionContext _context;
