@@ -24,8 +24,6 @@
   <ItemGroup>
 	<PackageReference Include="Verify.Xunit" />
     <PackageReference Include="Verify.SourceGenerators" />
-	<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
-	<PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
 	<PackageReference Include="System.Collections.Immutable" />
   </ItemGroup>
 	

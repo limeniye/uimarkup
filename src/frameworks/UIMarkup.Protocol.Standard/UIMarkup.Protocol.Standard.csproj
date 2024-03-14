@@ -2,8 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<IncludeBuildOutput>false</IncludeBuildOutput>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+	  <LangVersion>latest</LangVersion>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -19,7 +22,7 @@
 	
   <ItemGroup>	  
 	<ProjectReference Include="..\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
 	</ProjectReference>
     <ProjectReference Include="..\UIMarkup.Protocol\UIMarkup.Protocol.csproj" />
