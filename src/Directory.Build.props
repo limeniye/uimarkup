@@ -18,6 +18,10 @@
     <SynthesizeLinkMetadata>true</SynthesizeLinkMetadata>
   </PropertyGroup>
   
+  <PropertyGroup>
+    <ExtendedDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\tools\System.Extended\'))\</ExtendedDir>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)IsExternalInit.cs" Visible="false" />
   </ItemGroup>

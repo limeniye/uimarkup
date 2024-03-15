@@ -21,5 +21,9 @@
 	
   <ItemGroup>
     <InternalsVisibleTo Include="UIMarkup.Protocol.SourceGenerators.Tests" />
+	<Compile Include="$(ExtendedDir)Extensions\StringExtensions.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Extensions\StringExtensions.cs</Link>
+	</Compile>
   </ItemGroup>
 </Project>

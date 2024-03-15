@@ -3,8 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\tools\System.Extended\System.Extended.csproj" />
-  </ItemGroup>
+		
+  <Import Project="$(ExtendedDir)System.Extended.projitems" Label="Shared" />
 </Project>

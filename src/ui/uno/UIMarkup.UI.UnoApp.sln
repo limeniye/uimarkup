@@ -48,15 +48,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protocols", "Protocols", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{FAF9742D-2365-4B8A-99B2-88FA91ABE64B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Extended", "..\..\tools\System.Extended\System.Extended.csproj", "{C22DF6E4-9322-4922-A9B6-A5BA415DC033}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIMarkup.Protocol", "..\..\frameworks\UIMarkup.Protocol\UIMarkup.Protocol.csproj", "{55F50BF5-1391-401F-AF0D-DF4CE77F60D1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIMarkup.Protocol.Standard", "..\..\frameworks\UIMarkup.Protocol.Standard\UIMarkup.Protocol.Standard.csproj", "{B26BC994-28A2-4A63-B21F-C8A0C52A595F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIMarkup.Protocol.SourceGenerators", "..\..\frameworks\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj", "{1E1BDD0C-104E-4B31-A84B-21DA0AA31318}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIMarkup.Protocol.SourceGenerators", "..\..\frameworks\UIMarkup.Protocol.SourceGenerators\UIMarkup.Protocol.SourceGenerators.csproj", "{1E1BDD0C-104E-4B31-A84B-21DA0AA31318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIMarkup.Protocol.SourceGenerators.Tests", "..\..\frameworks\UIMarkup.Protocol.SourceGenerators.Tests\UIMarkup.Protocol.SourceGenerators.Tests.csproj", "{C811C471-5255-4CDC-B06B-9495F21DA895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIMarkup.Protocol.SourceGenerators.Tests", "..\..\frameworks\UIMarkup.Protocol.SourceGenerators.Tests\UIMarkup.Protocol.SourceGenerators.Tests.csproj", "{C811C471-5255-4CDC-B06B-9495F21DA895}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Extended", "..\..\tools\System.Extended\System.Extended.shproj", "{62EAB858-8167-492F-8D32-93DD565FBB3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -272,22 +272,6 @@ Global
 		{E3F59F8C-8C33-4B4D-959C-2DF500A3AC69}.Release|x64.Build.0 = Release|Any CPU
 		{E3F59F8C-8C33-4B4D-959C-2DF500A3AC69}.Release|x86.ActiveCfg = Release|Any CPU
 		{E3F59F8C-8C33-4B4D-959C-2DF500A3AC69}.Release|x86.Build.0 = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|arm64.Build.0 = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|x64.Build.0 = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Debug|x86.Build.0 = Debug|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|arm64.ActiveCfg = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|arm64.Build.0 = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|x64.ActiveCfg = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|x64.Build.0 = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|x86.ActiveCfg = Release|Any CPU
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033}.Release|x86.Build.0 = Release|Any CPU
 		{55F50BF5-1391-401F-AF0D-DF4CE77F60D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55F50BF5-1391-401F-AF0D-DF4CE77F60D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55F50BF5-1391-401F-AF0D-DF4CE77F60D1}.Debug|arm64.ActiveCfg = Debug|Any CPU
@@ -371,13 +355,17 @@ Global
 		{B69BD9D8-FE1A-4169-AF5F-B394101E0C79} = {49A28D59-75A0-4996-BC79-2476A3A1E664}
 		{B57809CC-E000-4D26-9FBA-DBBA1FA8DED3} = {49A28D59-75A0-4996-BC79-2476A3A1E664}
 		{E3F59F8C-8C33-4B4D-959C-2DF500A3AC69} = {77120B51-41DA-4131-9000-120E7825F67F}
-		{C22DF6E4-9322-4922-A9B6-A5BA415DC033} = {FAF9742D-2365-4B8A-99B2-88FA91ABE64B}
 		{55F50BF5-1391-401F-AF0D-DF4CE77F60D1} = {9457B6A6-7089-41B3-A8D5-C8123DF9AB84}
 		{B26BC994-28A2-4A63-B21F-C8A0C52A595F} = {9457B6A6-7089-41B3-A8D5-C8123DF9AB84}
 		{1E1BDD0C-104E-4B31-A84B-21DA0AA31318} = {9457B6A6-7089-41B3-A8D5-C8123DF9AB84}
 		{C811C471-5255-4CDC-B06B-9495F21DA895} = {9457B6A6-7089-41B3-A8D5-C8123DF9AB84}
+		{62EAB858-8167-492F-8D32-93DD565FBB3C} = {FAF9742D-2365-4B8A-99B2-88FA91ABE64B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F69832EB-4731-476F-8696-F61F9915B441}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\tools\System.Extended\System.Extended.projitems*{55f50bf5-1391-401f-af0d-df4ce77f60d1}*SharedItemsImports = 5
+		..\..\tools\System.Extended\System.Extended.projitems*{62eab858-8167-492f-8d32-93dd565fbb3c}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
