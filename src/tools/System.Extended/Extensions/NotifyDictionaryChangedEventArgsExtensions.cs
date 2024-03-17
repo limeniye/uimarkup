@@ -161,8 +161,8 @@ public static class NotifyDictionaryChangedEventArgsExtensions
 	/// Setting the key value in the dictionary
 	/// </summary>
 	/// <returns>
-	/// Returns false if there is no such key and instead of replacement, addition was performed.<br/>
-	/// If the key was found, but the value is equal with old value, then the result will be true, but the action will not rise
+	/// Returns <see langword="false"/> if there is no such key and instead of replacement, addition was performed.<br/>
+	/// If the key was found, but the value is equal with old value, then the result will be <see langword="true"/>, but the action will not rise
 	/// </returns>
 	public static bool SetAndRiseEvent<TKey, TValue>(
 		this IDictionary<TKey, TValue> currentEntities,
